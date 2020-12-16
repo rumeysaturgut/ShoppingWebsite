@@ -1,0 +1,180 @@
+body {
+  background-color: #ffffff;
+  color: #333333;
+  margin-top: 100px;
+}
+.custom_container {
+    margin:100px;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+.sidebarimg {
+	width: 100%;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 125px;
+  height:125px;
+}
+.homedivs {
+  margin-left:8px;
+  position: relative
+}
+.sepeteekle2 {
+    position: absolute;
+    bottom: 0;
+    left: 300;
+}
+
+.bosalt {
+    margin-bottom:15px;
+
+}
+
+.adminControl {
+    position: absolute;
+    bottom: 0;
+    left: 300;
+}
+
+.pricediv {
+    width:25%;
+}
+.categorydiv {
+    width:90%;
+    margin:15px;
+}
+.datediv {
+    width:100%;
+}
+
+
+.datediv1 {
+    width:45%;
+    float:left;
+    margin:10px;
+}
+.datediv2 {
+    width:45%;
+    float:left;
+    margin:10px;
+}
+.submitdiv {
+   clear: both;
+   margin-left:15px;
+}
+.homemain {
+    border:thin;
+	border-style: solid;
+	border-color: lightgray;
+	padding:3px;
+	margin-bottom:15px;
+}
+
+
+.forloopdiv {
+    text-align:center;
+	float:left;
+    margin-bottom:25px;
+}
+
+#product_image {
+    width:250px;
+    height:250px;
+    margin:auto;
+}
+
+.productForm {
+    margin:auto;
+}
+.productForm a{
+    width: 80%;
+    margin:5px;
+}
+
+/*.sepeteekle1 {
+
+}
+.dahafazla {
+
+}*/
+
+#resmim {
+    width:500px;
+    height:500px;
+}
+

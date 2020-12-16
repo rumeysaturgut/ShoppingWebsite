@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST" action="">
+    {{ form1.hidden_tag() }}
+    <div class="homemain">
+         <div class="categorydiv">
+           {{ form1.category.label(class="form-control-label") }}
+                {% if form1.category.errors %}
+                    {{ form1.category(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form1.category.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form1.category(class="form-control form-control-lg") }}
+                {% endif %}
+             <p></br></p>
+
+         </div>
+        <div class="datediv">
+            <div class="datediv1">
+
+               {{ form1.start_date.label(class="form-control-label") }}
+                    {% if form1.start_date.errors %}
+                        {{ form1.start_date(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form1.start_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form1.start_date(class="form-control form-control-lg") }}
+                    {% endif %}
+                 <p></br></p>
+            </div>
+            <div class="datediv2">
+               {{ form1.end_date.label(class="form-control-label") }}
+                    {% if form1.end_date.errors %}
+                        {{ form1.end_date(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form1.end_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form1.end_date(class="form-control form-control-lg") }}
+                    {% endif %}
+                 <p></br></p>
+
+             </div>
+        </div>
+        <div class="submitdiv">{{ form1.submit(class="btn btn-outline-info") }}</div>
+    </div>
+    </form>
+
+<!-- urunler listesi -->
+
+    {% for product,count in ordered.items() %}
+        <div class="col-md-4 forloopdiv">
+
+          <div class="productForm">
+            <img id="product_image"  src="{{ url_for('static', filename='profile_pics/' + product.image_file) }}">
+            <h2><a class="" href="{{url_for('product',product_id=product.id)}}">{{ product.title }}</a></h2>
+            {% for cat in cats %}
+              {% if cat.id == product.category_id %}
+                <p class="">Kategori : {{ cat.name }}</p>
+              {% endif %}
+            {% endfor %}
+            <p class=""><strong>Fiyat : {{ product.price }}</strong></p>
+            <p>Bu Ürün {{count}} kere satın alındı.</p>
+            {% if current_user.urole != 'ADMIN' %}
+              <a href="{{url_for('add_to_cart1',product_id=product.id)}}" class="btn btn-warning sepeteekle1">Sepete Ekle</a>
+              <a href="{{url_for('product',product_id=product.id)}}" class="btn btn-info dahafazla"><span class="glyphicon glyphicon-info-sign">Daha Fazla</span></a>
+            {% else %}
+              <a href="{{url_for('product',product_id=product.id)}}" class="btn btn-info dahafazla"><span class="glyphicon glyphicon-info-sign">Daha Fazla</span></a>
+            {% endif %}
+          </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    {% if current_user.purchased|length>0 %}
+
+       {% for product in current_user.purchased %}
+            <article class="media content-section">
+                <img  src="{{ url_for('static', filename='profile_pics/' + product.image_file) }}">
+              <div class="media-body homedivs">
+                <h2><a class="article-title" href="{{url_for('product',product_id=product.id)}}">{{ product.title }}</a></h2>
+                <p class="article-content">Fiyat : {{ product.price }}</p>
+
+              </div>
+              <div class="form-group pricediv">
+                {% for item in items %}
+                  {% if item.product_id==product.id %}
+
+                        <p><strong>Sipariş Tarihi: {{ item.date_purchased.strftime('%Y-%m-%d') }}</strong></p>
+                        <p><strong>Adet : {{ item.count }}</strong></p>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </article>
+        {% endfor %}
+
+
+    {% else %}
+        <h2>Siparişiniz bulunmuyor</h2>
+    {% endif %}
+
+{% endblock %}

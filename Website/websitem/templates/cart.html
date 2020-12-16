@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    {% if cart.products|length>0 %}
+
+            <a href="{{url_for('cart_clear')}}" class="btn btn-danger bosalt"><span class="glyphicon glyphicon-trash"></span>Sepeti Boşalt</a>
+        <form method="POST" class="myform" action="{{url_for('cart')}}">
+        {% set cnt=[0]%}
+        {% for product in cart.products %}
+            {% set name='adet' %}
+            {% if cnt.append(cnt.pop()+1) %}{%endif%}
+            {% set name=name~cnt[0] %}
+
+                <article class="media content-section">
+                    <img  src="{{ url_for('static', filename='profile_pics/' + product.image_file) }}">
+                    <div class="media-body homedivs">
+                    <h2><a class="article-title" href="{{url_for('product',product_id=product.id)}}">{{ product.title }}</a></h2>
+                    <p class="article-content">Fiyat : {{ product.price }}</p>
+                    <a href="{{url_for('cart_remove',product_id=product.id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Çıkart</a>
+                    </div>
+                    <div class="form-group pricediv">
+                        <p><strong>Adet :</strong></p>
+                        <input name={{ name }} type="number" id="replyNumber" min="1" step="1" data-bind="value:replyNumber" />
+
+                    </div>
+                </article>
+
+
+        {% endfor %}
+
+            <input class="btn btn-outline-info sidebarimg" type="submit" name="submit" value="Satın Al">
+        </form>
+    {% else %}
+        <h2>Sepetiniz boş</h2>
+    {% endif %}
+
+{% endblock %}
